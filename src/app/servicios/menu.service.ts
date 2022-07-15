@@ -11,7 +11,7 @@ export class MenuService {
   opcionMenu() {
     if (sessionStorage.getItem('perfUsuario') === '971') {//con 970 correcto, super administrador
       return this.htp.get<Menu[]>('/assets/datos/menu-admin.json');
-    } else if (sessionStorage.getItem('perfUsuario') === '970') { // con 971 correcto amanuence de unidad
+    } else if (sessionStorage.getItem('perfUsuario') === '971') { // con 971 correcto amanuence de unidad
       return this.htp.get<Menu[]>('/assets/datos/menu-ams.json');
     }else if (sessionStorage.getItem('perfUsuario') === '972') { //con 972 oficial de semana
       return this.htp.get<Menu[]>('/assets/datos/menu-os.json');

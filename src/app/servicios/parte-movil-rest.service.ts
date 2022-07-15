@@ -265,7 +265,6 @@ Esto esta de verificcar que funcion hace
   }
 
   insertarNovedad(objPersona) {
-    console.log("Veindo que se va a enviar ", objPersona)
     const urlServer = apiUrlTare + 'novedades/creNovedad';
     return this.http.post(urlServer, objPersona, this.encabezadoTknJSON());
   }

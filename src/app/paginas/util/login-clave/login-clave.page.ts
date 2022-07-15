@@ -48,6 +48,7 @@ export class LoginClavePage implements OnInit {
     this.partMoviServ.validacionLoge2(this.objFormLog.value).subscribe(
       (resultado: any) => {
         loading.dismiss();
+        console.log("Veindo si trae el token ",resultado )
 
         if (resultado.respValidada === 'A') {
           this.claveUsuario = '';
@@ -56,7 +57,9 @@ export class LoginClavePage implements OnInit {
             usuario: sessionStorage.getItem('ciUsuario')
           });
 
-          this.validandoPerfil(this.objFormValid.value, this.utilServ.getVarSession('ciUsuario'));
+          sessionStorage.setItem('tkn', resultado.JWT);
+          this.validandoPerfil(this.objFormValid.value);
+
         } else {
           this.claveUsuario = '';
           this.cont++;
@@ -79,7 +82,7 @@ export class LoginClavePage implements OnInit {
     );
   }
 
-  async validandoPerfil(objFormLog, ciUsuario) {
+  async validandoPerfil(objFormLog) {
     const loading = await this.alerCtrl.create({
       message: 'Validando...',
     });
@@ -90,7 +93,6 @@ export class LoginClavePage implements OnInit {
         loading.dismiss();
         if (resultado.respValidada === 'A') {
           this.utilServ.setVarSession('perfUsuario', resultado.respPerfil);
-          sessionStorage.setItem('tkn', resultado.JWT);
           this.irPagina.navigateForward('/selec-unidad');
         } else {
           this.utilServ.mostAlerta('Usuario sin perfil', 'Advertencia');
@@ -103,46 +105,4 @@ export class LoginClavePage implements OnInit {
       }
     );
   }
-
-  /*
-  async validarClave() {
-    this.objFormLog.patchValue({
-      usuario: sessionStorage.getItem('ciUsuario'),
-      contrasenia: this.claveUsuario,
-    });
-
-    const loading = await this.alerCtrl.create({
-      message: 'Verificando...',
-    });
-    loading.present();
-
-    this.partMoviServ.validacionLoge2(this.objFormLog.value).subscribe(
-      (resultado: any) => {
-
-        if (resultado.respValidada === 'A') {
-          this.claveUsuario = '';
-          sessionStorage.setItem('tkn', resultado.JWT);
-          this.irPagina.navigateForward('/selec-unidad');
-        } else {
-          this.claveUsuario = '';
-          this.cont++;
-          if (this.cont === 3) {
-            this.utilServ.clear();
-            this.utilServ.mostAlerta(
-              'Contraseña incorrecta, ingrese nuevamente',
-              'Error'
-            );
-            this.irPagina.navigateForward('/login');
-          } else {
-            this.utilServ.mostAlerta('Contraseña incorrecta', 'Advertencia');
-            this.irPagina.navigateForward('/login-clave');
-          }
-        }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-  */
 }
