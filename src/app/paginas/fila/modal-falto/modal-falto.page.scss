@@ -1,0 +1,26 @@
+
+.labelCatal {
+    width: 29% !important;
+    font-size: 0.83em;
+    font-weight: bold;
+  }
+
+  .labelResult {
+    width: 70% !important;
+    font-size: 0.83em;
+    font-weight: bold;
+  }
+
+
+ ion-row{
+    width: 100%;
+ }
+  
+  ion-textarea{
+    border: 2px solid var(--ion-color-primary);
+    outline: none;
+    width: 70%;
+    font-size: 0.85em;
+    margin-left: 3%;
+    text-align: center;
+  }

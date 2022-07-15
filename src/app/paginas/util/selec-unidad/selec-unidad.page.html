@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-uppercase ion-text-center "> {{titulo}} </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="limpiar()" shape="round" fill="outline">Salir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-card>
+          <ion-item-divider>
+            <ion-label class="subTitulo2 ">Seleccione la unidad </ion-label>
+          </ion-item-divider>
+          <ion-list>
+            <ion-item>
+              <ion-label>Descripción</ion-label>
+              <ion-label slot="end" class="subTitulo3">Siglas </ion-label>
+            </ion-item>
+            <ion-item class="ionLabel" *ngFor="let unidad of listUnidades" detail>
+              <ion-label> {{unidad.descripcion}} </ion-label>
+              <ion-badge slot="end" (click)="seleccionarUnidades(unidad.clpCodigo, unidad.siglasUnidad)">
+                {{unidad.siglasUnidad}} </ion-badge>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

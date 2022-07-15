@@ -1,0 +1,34 @@
+<app-enca-atras titulo="{{titCompar}}"> {{titCompar}} </app-enca-atras>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col style="text-align: center">
+        <ion-item>
+          <ion-label class="labelCatal"> Grado: </ion-label>
+          <ion-label class="labelResult ion-text-wrap">
+            {{persona.gradoGrupo}}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="labelCatal"> Nombres: </ion-label>
+          <ion-label class="labelResult ion-text-wrap">
+            {{persona.nombreCompleto}}
+          </ion-label>
+        </ion-item>
+
+        <br />
+        <ion-label class="labelCatal ion-text-wrap"> Fecha Fin: </ion-label>
+        <ion-item>
+          <ion-datetime placeholder="ELIJA UNA FECHA" display-format="DD MMMM YYYY HH:mm" cancelText="Cancelar!!!"
+            (ionChange)="fechaFin($event)"></ion-datetime>
+        </ion-item>
+
+        <ion-button shape="round" fill="outline" (click)="registrarSemana(persona)">
+          Registrar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

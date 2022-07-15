@@ -1,0 +1,80 @@
+<app-enca-atras titulo="{{titCompar}}"> {{titCompar}} </app-enca-atras>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="text-align: center !important; ">
+      <ion-col>
+        <ion-item>
+          <ion-row>
+            <ion-label class="labelCatal"> Grado: </ion-label>
+            <ion-label class="labelResult ion-text-wrap">
+              {{persona.gradoGrupo}}
+            </ion-label>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-label class="labelCatal"> Nombres: </ion-label>
+            <ion-label class="labelResult ion-text-wrap">
+              {{persona.nombreCompleto}}
+            </ion-label>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-item class="ion-text-center">
+          <ion-row>
+            <ion-label class="labelCatal" style="top: -10% !important;"> Observación: </ion-label>
+            <ion-textarea maxlength="100" class="labelResult ion-text-wrap redondeado" outline placeholder="Ingrese motivo"
+              type="text" [(ngModel)]="observacionn">
+            </ion-textarea>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-item>
+          <ion-row>
+            <ion-row>
+              <ion-label style="text-align: center; width: 100%;"> Fecha Inicia: </ion-label>
+            </ion-row>
+            <br>
+            <ion-datetime placeholder="ELIJA UNA FECHA " display-format="DD MMMM YYYY HH:mm" cancelText="Cancelar!!!"
+              (ionChange)="fechaInicio($event)">
+            </ion-datetime>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-item>
+          <ion-row>
+            <ion-row>
+              <ion-label style="text-align: center; width: 100%;"> Fecha Fin: </ion-label>
+            </ion-row>
+            <br>
+            <ion-datetime display-format="DD MMMM YYYY HH:mm" cancelText="Cancelar!!!" (ionChange)="fechaFin($event)">
+            </ion-datetime>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-item>
+          <ion-row>
+            <ion-label class="labelCatal ion-text-wrap"> {{titCompar}}: </ion-label>
+            <ion-select class="select-full-width" (ionChange)="capturaFueraFila($event)" okText="Aceptar" cancelText="Cancelar"
+              placeholder="Opción">
+              <ion-select-option class="select-full-width" *ngFor="let cat of catalogoFF" [value]="cat">
+                  {{ cat.motivo }}
+              </ion-select-option>
+            </ion-select>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-button shape="round" fill="outline" (click)="registrarFuFi(persona)">
+          REGISTRAR
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

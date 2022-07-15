@@ -1,0 +1,47 @@
+<ion-content fullscreen>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" shape="round" fill="outline">CERRAR</ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase"> {{ tituEncabezado }}</ion-title>
+  </ion-toolbar>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-item>
+          <ion-row>
+            <ion-label class="labelCatal"> Cedula: </ion-label>
+            <ion-label class="labelResult ion-text-wrap"> {{objPersonaMdl.memCedula}} </ion-label>
+          </ion-row>
+        </ion-item>
+
+        <ion-item>
+          <ion-row>
+            <ion-label class=" labelCatal"> Grado: </ion-label>
+            <ion-label class="labelResult ion-text-wrap">{{objPersonaMdl.gradoGrupo}} {{objPersonaMdl.nombreCompleto}}
+            </ion-label>
+          </ion-row>
+        </ion-item>
+        <br />
+
+        <ion-item class="ion-text-center">
+          <ion-row>
+            <ion-label class="labelCatal ion-text-wrap"> Observación: </ion-label>
+            <ion-textarea maxlength="100" class="ion-text-wrap redondeado" outline placeholder="Ingrese motivo"
+              type="text" [(ngModel)]="observacionn">
+            </ion-textarea>
+          </ion-row>
+        </ion-item>
+        <br />
+        <ion-datetime presentation="date" (ionChange)="fechaInicio($event)"></ion-datetime>
+        <br />
+        <ion-button shape="round" fill="outline" (click)="registrarFalto()"> REGISTRAR
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

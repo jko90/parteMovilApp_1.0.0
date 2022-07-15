@@ -1,0 +1,67 @@
+.Encabezado {
+    border: 1px solid var(--ion-color-medium);
+    text-align: left;
+    width: 65%;
+    font-weight:bold;
+  }
+  
+  //Para titulos
+  .tituEncabezado{
+    border-bottom: 1px solid var(--ion-color-medium);
+    border-right: 1px solid var(--ion-color-medium);
+    border-top: 1px solid var(--ion-color-medium);
+    text-align: center !important;
+    width: 35%;
+  }
+  
+  .lineSupeDerecho{
+     border-top: 1px solid var(--ion-color-medium);
+    width: 50%;
+    display: inline-block;
+    text-align: center !important;
+    font-weight:bold;
+  }
+  
+  
+  .numericoItems{
+    border-left: 1px solid var(--ion-color-medium);
+    border-bottom: 1px solid var(--ion-color-medium);
+    border-right: 1px solid var(--ion-color-medium);
+    text-align: left;
+    width: 65%;
+  }
+  
+  .anchoNumerico{
+    border-bottom: 1px solid var(--ion-color-medium);
+    border-right: 1px solid var(--ion-color-medium);
+    text-align: left;
+    width: 35%;
+
+  }
+  
+  .anchoInternoNume{
+    text-align: left;
+    width: 50%;
+    display: inline-block;
+    text-align: center !important;
+    // margin: 0%;
+  }
+  
+  .lineVerticalInter{
+    border-left: 1px solid var(--ion-color-medium);
+    width: 50%;
+    display: inline-block;
+    text-align: center !important;
+  }
+
+  .textNormal{
+   font-weight:normal !important;
+  }
+  
+  .tamanoLetra{
+    font-size: large;
+  }
+ 
+  .subtituloFuFi{
+    width: 100%; text-align: center; font-size: large;
+  }

@@ -1,0 +1,39 @@
+
+
+async alertaConfirmar(objPers) {
+    const alert = await this.alerCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirmar',
+      message: 'Está seguro de continuar?',
+      buttons: [
+        {
+          text: 'CANCELAR',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          },
+        },
+        {
+          text: 'ACEPTAR',
+          id: 'confirm-button',
+          handler: () => {
+            //Llamar al metodo de activacion
+            this.cargandoDatos();
+            this.partMoviServ
+              .asignarSemana(objPers.value)
+              .subscribe((respSemana: any) => {
+                this.respuestaRegistro(respSemana);
+              });
+
+            // console.log('Confirmando peticion ', objPers);
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+
+  

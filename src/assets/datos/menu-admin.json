@@ -1,0 +1,27 @@
+[
+    {
+        "icon": "accessibility-outline",
+        "name": "Personal de amanuenses",
+        "redirectTo": "/disponibles-ams"
+    },
+    {
+        "icon": "clipboard-outline",
+        "name": "Unidades",
+        "redirectTo": "/camb-unidad"
+    },
+    {
+        "icon": "business-outline",
+        "name": "Amanuenses",
+        "redirectTo": "/asig-amanuense"
+    },
+    {
+        "icon": "lock-closed-outline",
+        "name": "Politica de seguridad",
+        "redirectTo": "/poli-seguridad"
+    },
+    {
+        "icon": "help-circle-outline",
+        "name": "Ayuda",
+        "redirectTo": "/ayuda"
+    }
+]

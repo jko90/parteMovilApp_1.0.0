@@ -1,0 +1,58 @@
+<app-enca-atras titulo="{{tituEncabezado}}"></app-enca-atras>
+
+<ion-content fullscreen>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        
+        <ion-item *ngIf="persona.motivo === null">
+          <ion-label class="labelCatal"> Cedula: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.memCedula}} </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="labelCatal"> Grado: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.gradoGrupo}} </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="labelCatal"> Nombres: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.nombreCompleto}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.destino != null">
+          <ion-label class="labelCatal"> Destino: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.destino}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.tiempo != null">
+          <ion-label class="labelCatal ion-text-wrap"> Tiempo (aa/mm/dd): </ion-label>
+            <ion-label class="diaHora"> {{persona.tiempo}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.fInicio != null">
+          <ion-label class="labelCatal"> Fecha Inicia: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{ persona.fInicio | date:'dd/MM/yyyy HH:mm'}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.fFin != null">
+          <ion-label class="labelCatal"> Fecha Finaliza: </ion-label>
+          <ion-label class="labelResult ion-text-wrap" > {{ persona.fFin | date:'dd/MM/yyyy HH:mm'}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.observacion != null">
+          <ion-label class="labelCatal"> Observación: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.observacion}} </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="persona.unidad != null">
+          <ion-label class="labelCatal"> Unidad: </ion-label>
+          <ion-label class="labelResult ion-text-wrap"> {{persona.unidad}} </ion-label>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,34 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-label style="margin-left: 43%;" class="subTitulo2 ">Seleccione la unidad</ion-label>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar animated 
+  (ionChange)="capturaUnidad($event)"
+  placeholder="Buscar unidad ..." 
+    inputmode="text"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-col style="text-align: center;">
+        <ion-row>
+            <ion-item class="negrilla1">
+                <ion-label> Nombre unidad: </ion-label>
+                <div class="ancho1">
+                    <ion-label> Sigla </ion-label>
+                </div>
+            </ion-item>
+            <ion-item class="contenedor" *ngFor="let detalle of catalogoUnidades | filtrar: buscador: 'descripcion' " (click)="unidadSeleccionada(detalle)">
+                <ion-label class="ionLabel anchoNom1 ion-text-wrap" > {{detalle.descripcion}} </ion-label>
+                <ion-label class="ionLabel anchoDat1"> {{detalle.siglasUnidad}} </ion-label>
+            </ion-item>
+        </ion-row>
+    </ion-col>
+</ion-grid>
+
+
+</ion-content>

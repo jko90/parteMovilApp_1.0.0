@@ -1,0 +1,39 @@
+<app-encabezado titulo="{{siglaUnidad}}"></app-encabezado>
+
+<ion-searchbar placeholder="Buscar.." inputmode="text" (ionChange)="buscarPersonal( $event )" animated></ion-searchbar>
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-col style="text-align: center">
+      <ion-row>
+        <ion-item class="negrilla1">
+          <ion-label> Grado/Nombres</ion-label>
+          <div class="ancho1">
+            <ion-label> Unidad</ion-label>
+          </div>
+        </ion-item>
+
+        <ion-item class="contenedor" *ngFor="let detalle of efectivos | filtrar:buscador:'nombreAbreviado'">
+          <div class="anchoDat1">
+            <ion-label class="ionLabel "> {{ detalle.nombreAbreviado }}
+            </ion-label>
+          </div>
+           
+          <div> 
+            <ion-label class="ionLabel "> &nbsp;&nbsp; {{ detalle.unidad }}
+            </ion-label>
+          </div>
+          <ion-select (ionChange)="capturaObjEnviar($event, detalle)" placeholder="Asignar" okText="Aceptar"
+            cancelText="Cancelar">
+            <ion-select-option value="972">Oficial de semana</ion-select-option>
+            <ion-select-option value="973">Clase de semana</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-row>
+
+
+    </ion-col>
+  </ion-grid>
+
+</ion-content>

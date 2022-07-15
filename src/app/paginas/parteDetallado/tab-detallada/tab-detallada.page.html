@@ -1,0 +1,106 @@
+<app-encabezado titulo="{{siglaUnidad}}"></app-encabezado>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refrescarPantalla($event)">
+        <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
+    
+    <ion-grid fixed>
+
+        <div *ngIf="listPermisoLAP.length != 0">
+            <div class="subtituloFuFi">
+                <ion-label class="subTitulo2 ">LICENCIA/PERMISOS</ion-label>
+            </div>
+            <ion-col>
+                <ng-container style="background-color: red !important;" *ngFor="let detalle of listPermisoLAP">
+                    <br>
+                    <ion-item-divider class="negrilla1">
+                        <div style="text-align: center; width: 100%;">
+                            <ion-label style="font-size: 1.25em">{{detalle[0].motivo}}</ion-label>
+                        </div>
+                    </ion-item-divider>
+                    <ion-item class="negrilla1">
+                        <ion-label> Nombres </ion-label>
+                        <div class="ancho1">
+                            <ion-label> Fecha F. </ion-label>
+                        </div>
+                    </ion-item>
+                    <ion-item class="contenedor" *ngFor="let detalle1 of detalle" (click)="informacionLAP(detalle1)">
+                        <div class="anchoNom1 ">
+                            <ion-label class="ionLabel"> {{detalle1.nombreAbreviado}} </ion-label>
+                        </div>
+                        <div class="anchoDat">
+                            <ion-label class="labelResult ion-text-wrap"> {{ detalle1.fFin | date:'dd/MM/yyyy HH:mm'}}
+                            </ion-label>
+                        </div>
+                    </ion-item>
+                </ng-container>
+            </ion-col>
+        </div>
+        <br>
+        <div *ngIf="listNovedades.length != 0">
+            <div class="subtituloFuFi">
+                <ion-label class="subTitulo2 ">NOVEDADES</ion-label>
+            </div>
+            <ion-col>
+                <ng-container style="background-color: red !important;" *ngFor="let detalle of listNovedades">
+                    <br>
+                    <ion-item-divider class="negrilla1">
+                        <div style="text-align: center; width: 100%;">
+                            <ion-label style="font-size: 1.25em">{{detalle[0].motivo}}</ion-label>
+                        </div>
+                    </ion-item-divider>
+                    <ion-item class="negrilla1">
+                        <ion-label> Nombres </ion-label>
+                        <div class="ancho1">
+                            <ion-label> Tiempo </ion-label>
+                        </div>
+                    </ion-item>
+                    <ion-item class="contenedor" *ngFor="let detalle1 of detalle"
+                        (click)="informacionMovimiento(detalle1,'novedad')">
+                        <div class="anchoNom1 ">
+                            <ion-label class="ionLabel"> {{detalle1.nombreAbreviado}} </ion-label>
+                        </div>
+                        <div class="anchoDat">
+                            <ion-label class="ionLabel "> {{detalle1.tiempo}}
+                            </ion-label>
+                        </div>
+                    </ion-item>
+                </ng-container>
+            </ion-col>
+        </div>
+        <br>
+        <div *ngIf="fueraFila.length != 0">
+            <div class="subtituloFuFi">
+                <ion-label class="subTitulo2 ">FUERA DE FILA</ion-label>
+            </div>
+            <ion-col>
+                <ng-container style="background-color: red !important;" *ngFor="let detalle of fueraFila">
+                    <br>
+                    <ion-item-divider class="negrilla1">
+                        <div style="text-align: center; width: 100%;">
+                            <ion-label style="font-size: 1.25em">{{detalle[0].titulo}}</ion-label>
+                        </div>
+                    </ion-item-divider>
+
+                    <ion-item class="negrilla1">
+                        <ion-label> Nombres </ion-label>
+                        <div class="ancho1">
+                            <ion-label> Observación </ion-label>
+                        </div>
+                    </ion-item>
+
+                    <ion-item class="contenedor" *ngFor="let detalle1 of detalle"
+                        (click)="informacionMovimiento(detalle1,'fuerfila')">
+                        <div class="anchoNom1 ">
+                            <ion-label class="ionLabel"> {{detalle1.nombreAbreviado}} </ion-label>
+                        </div>
+                        <div class="anchoDat">
+                            <ion-label class="ionLabel ion-text-wrap">{{detalle1.observacion}} </ion-label>
+                        </div>
+                    </ion-item>
+                </ng-container>
+            </ion-col>
+        </div>
+    </ion-grid>
+</ion-content>

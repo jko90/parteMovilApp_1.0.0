@@ -1,0 +1,27 @@
+[
+    {
+        "icon": "accessibility-outline",
+        "name": "Efectivos",
+        "redirectTo": "/disponibles-ams"
+    },
+    {
+        "icon": "clipboard-outline",
+        "name": "Semana",
+        "redirectTo": "/semana"
+    },
+    {
+        "icon": "business-outline",
+        "name": "Cambiar unidad",
+        "redirectTo": "/camb-unidad"
+    },
+    {
+        "icon": "lock-closed-outline",
+        "name": "Politica de seguridad",
+        "redirectTo": "/poli-seguridad"
+    },
+    {
+        "icon": "help-circle-outline",
+        "name": "Ayuda",
+        "redirectTo": "/ayuda"
+    }
+]

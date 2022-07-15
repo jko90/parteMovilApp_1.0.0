@@ -1,0 +1,105 @@
+<app-encabezado titulo="{{siglaUnidad}}"></app-encabezado>
+
+
+
+<ion-content style="text-align: center;">
+
+    <ion-refresher slot="fixed" (ionRefresh)="refrescarPantalla($event)">
+        <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-grid fixed>
+        <div class="subtituloFuFi">
+            <ion-label class="subTitulo2 ">TABLA NUMÉRICA</ion-label>
+        </div>
+
+        <ion-row>
+            <div class="Encabezado">
+                <ion-label class="ion-text-wrap " style=" font-size: 1em;"> Novedades </ion-label>
+            </div>
+            <div class="tituEncabezado">
+                <div class="lineSupeDerecho">
+                    <ion-label class="ion-text-wrap">Oficial</ion-label>
+                </div>
+                <div class="lineSupeDerecho">
+                    <ion-label class="ion-text-wrap">Tropa</ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+        <ion-row *ngFor="let fila of numFila">
+            <div class="numericoItems" (click)="visualizarObjeto('Fila')">
+                <ion-label> Fila </ion-label>
+            </div>
+            <div class="anchoNumerico" (click)="visualizarObjeto('Fila')">
+                <div class="anchoInternoNume">
+                    <ion-label> {{ fila.numOficial }} </ion-label>
+                </div>
+                <div class="lineVerticalInter">
+                    <ion-label> {{ fila.numTropa }} </ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+        <ion-row *ngFor="let filaff of numFueraFila">
+            <div class="numericoItems " (click)="visualizarObjeto('fueraFila', 'fuerfila')">
+                <ion-label> Fuera de Fila</ion-label>
+            </div>
+            <div class="anchoNumerico" (click)="visualizarObjeto('fueraFila', 'fuerfila')">
+                <div class="anchoInternoNume" >
+                    <ion-label >{{ filaff.numOficial}}
+                    </ion-label>
+                </div>
+                <div class="lineVerticalInter" >
+                    <ion-label >{{ filaff.numTropa }}</ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+        <ion-row *ngFor="let filaff of numPermLAP">
+            <div class="numericoItems " (click)="visualizarObjeto(filaff.nombre, 'permLap')">
+                <ion-label> {{ filaff.nombre }}</ion-label>
+            </div>
+            <div class="anchoNumerico" (click)="visualizarObjeto(filaff.nombre, 'permLap')">
+                <div class="anchoInternoNume" >
+                    <ion-label >{{ filaff.numOficial }}
+                    </ion-label>
+                </div>
+                <div class="lineVerticalInter" >
+                    <ion-label > {{ filaff.numTropa }} </ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+        <ion-row *ngFor="let filaff of numNovedad">
+            <div class="numericoItems " (click)="visualizarObjeto(filaff.nombre, 'novedad')">
+                <ion-label> {{ filaff.nombre }}</ion-label>
+            </div>
+            <div class="anchoNumerico" (click)="visualizarObjeto(filaff.nombre, 'novedad')">
+                <div class="anchoInternoNume" >
+                    <ion-label >{{ filaff.numOficial }}
+                    </ion-label>
+                </div>
+                <div class="lineVerticalInter" >
+                    <ion-label > {{ filaff.numTropa }} </ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+        <br>
+        <ion-row>
+            <div class="numericoItems Encabezado">
+                <ion-label>TOTAL</ion-label>
+            </div>
+            <div class="anchoNumerico tamanoLetra">
+                <div class="anchoInternoNume lineSupeDerecho">
+                    <ion-label> {{ totalOficOrganico }} </ion-label>
+                </div>
+                <div class="lineVerticalInter lineSupeDerecho">
+                    <ion-label> {{ totalTropOrganico }} </ion-label>
+                </div>
+            </div>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>

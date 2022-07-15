@@ -1,0 +1,23 @@
+<app-enca-atras titulo="{{titCompar}}"> {{persona.motivo}}</app-enca-atras>
+
+
+<ion-content fullscreen>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col style="text-align: center;">
+
+        <ion-item>
+          <ion-label class="labelCatal ion-text-wrap hs"> Fecha Finaliza: </ion-label>
+          <ion-datetime placeholder="ELIJA UNA FECHA {{ persona.fFin | date: 'yyyy-MM-dd HH:mm'}}"
+            display-format="DD MMMM YYYY HH:mm" cancelText="Cancelar!!!" (ionChange)="cambioFecha($event)">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-button shape="round" fill="outline" (click)="finalizarMovimiento()"> GUARDAR </ion-button>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,37 @@
+[
+    {
+        "icon": "clipboard-outline",
+        "name": "Parte numérico",
+        "redirectTo": "/tab-numerica"
+    },
+    {
+        "icon": "reader-outline",
+        "name": "Parte detallado",
+        "redirectTo": "/tab-detallada"
+    },
+    {
+        "icon": "accessibility-outline",
+        "name": "Efectivos",
+        "redirectTo": "/efectivos"
+    },
+    {
+        "icon": "checkbox-outline",
+        "name": "Fila",
+        "redirectTo": "/disponibles"
+    },
+    {
+        "icon": "swap-horizontal-outline",
+        "name": "Fuera de Fila",
+        "redirectTo": "/fuera-fila"
+    },
+    {
+        "icon": "lock-closed-outline",
+        "name": "Politica de seguridad",
+        "redirectTo": "/poli-seguridad"
+    },
+    {
+        "icon": "help-circle-outline",
+        "name": "Ayuda",
+        "redirectTo": "/ayuda"
+    }
+]

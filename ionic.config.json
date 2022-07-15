@@ -1,0 +1,8 @@
+{
+  "name": "Parte Móvil",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

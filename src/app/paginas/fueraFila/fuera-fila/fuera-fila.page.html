@@ -1,0 +1,38 @@
+<app-encabezado titulo="{{siglaUnidad}}"></app-encabezado>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refrescarPantalla($event)">
+        <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
+    <ion-grid fixed>
+        <div class="subtituloFuFi">
+            <ion-label class="subTitulo2 ">FUERA DE FILA</ion-label>
+        </div>
+        <ion-col *ngIf="fueraFila.length != 0">
+            <ng-container style="background-color: red !important;" *ngFor="let detalle of fueraFila">
+                <br>
+                <ion-item-divider class="negrilla1">
+                    <div style="text-align: center; width: 100%;">
+                        <ion-label style="font-size: 1.25em">{{detalle[0].titulo}}</ion-label>
+                    </div>
+                </ion-item-divider>
+
+                <ion-item class="negrilla1">
+                    <ion-label> Nombres </ion-label>
+                    <div class="ancho1">
+                        <ion-label> Observación </ion-label>
+                    </div>
+                </ion-item>
+
+                <ion-item class="contenedor" *ngFor="let detalle1 of detalle" (click)="informacionMovimiento(detalle1)">
+                    <div class="anchoNom1 ">
+                        <ion-label class="ionLabel"> {{detalle1.nombreAbreviado}} </ion-label>
+                    </div>
+                    <div class="anchoDat">
+                        <ion-label class="ionLabel ion-text-wrap">{{detalle1.observacion}} </ion-label>
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ion-col>
+    </ion-grid>
+</ion-content>

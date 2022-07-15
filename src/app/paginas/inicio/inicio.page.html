@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title style="text-align: center;" >PARTE DIARIO</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="limpiar()" shape="round" fill="outline">Salir
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refrescarPantalla($event)">
+    <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+</ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let comp of componentes | async" [routerLink]="comp.redirectTo" detail>
+      <ion-icon slot="start" [name]="comp.icon"></ion-icon>
+      <ion-label> {{ comp.name }} </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

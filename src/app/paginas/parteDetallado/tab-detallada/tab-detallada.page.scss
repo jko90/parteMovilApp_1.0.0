@@ -1,0 +1,35 @@
+.ionLabel{
+    font-size: 0.85em;
+  }
+  
+  .negrilla1{
+    font-weight:bold;
+    width: 100%;
+  }
+  
+  .ancho1{
+    padding: 0%;
+    width: 50% !important;
+    margin-left: 5%;
+    text-align: center !important;
+  }
+ 
+  .anchoNom1{
+    padding: 0%;
+    width: 61% !important;
+  }
+  
+  .anchoDat{
+   // padding: 0%;
+    width: 38%;
+    padding: 0%;
+  }
+  
+  .linea {
+    border-top: 2px solid var(--ion-color-primary);
+    width: 100%;
+  }
+
+  .subtituloFuFi{
+    width: 100%; text-align: center; font-size: large;
+  }

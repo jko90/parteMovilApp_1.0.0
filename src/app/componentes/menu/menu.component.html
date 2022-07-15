@@ -1,0 +1,21 @@
+<ion-menu  side="start" menuId="menuTI" contentId="principal" type="push" auto-hide="TRUE">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title class="ion-text-uppercase">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refrescarPantalla($event)">
+      <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+  </ion-refresher>
+    <ion-list>
+      <ion-menu-toggle *ngFor="let comp of componentes | async">
+        <ion-item detail [routerLink]="comp.redirectTo">
+          <ion-icon slot="start" [name]="comp.icon"></ion-icon>
+          <ion-label> {{ comp.name }} </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
