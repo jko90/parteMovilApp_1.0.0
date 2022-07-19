@@ -123,6 +123,10 @@ const routes: Routes = [
     path: 'asig-amanuense',
     loadChildren: () => import('./paginas/admin/asig-amanuense/asig-amanuense.module').then( m => m.AsigAmanuensePageModule)
   },
+  {
+    path: 'bloqueo',
+    loadChildren: () => import('./paginas/util/bloqueo/bloqueo.module').then( m => m.BloqueoPageModule)
+  },
   
 ];
 

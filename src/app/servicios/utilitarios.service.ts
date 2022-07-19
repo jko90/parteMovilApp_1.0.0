@@ -122,11 +122,9 @@ export class UtilitariosService {
     }
   }
 
-
   enviarObjPersona(dato: any) {
     this.ObjPersona.next(dato);
   }
-
 
   //// VALIDACIONES DE TOKEN
   private validarTkn() {
@@ -145,15 +143,15 @@ export class UtilitariosService {
     return this.getTknDecode().valueOf().exp - Date.now() / 1000;
   }
 
-    validandoEstado() {
-
+  validandoEstado() {
     if (this.validarTkn()) {
-      
-      if (this.expTknDecode() > 0 && this.expTknDecode() < 10) {
-        return   this.actualizarToken();
+      console.log("Veindo que hay ",this.expTknDecode())
+      if (this.expTknDecode() > 0 && this.expTknDecode() < 50) {
+    console.log("viendo si va actualizar el token ", this.expTknDecode() , )
 
+        return this.actualizarToken();
       } else if (this.expTknDecode() < 0) {
-        return this.irPagina.navigateForward('/login-clave');
+        return this.irPagina.navigateForward('/bloqueo');
       }
       return true;
     } else {
@@ -161,26 +159,20 @@ export class UtilitariosService {
     }
   }
 
-
   objForm = new FormGroup({
-    usuario: new FormControl(),
-    tkn: new FormControl(),
+    usuario: new FormControl()
   });
 
   private actualizarToken() {
+    console.log("viendo si va actualizar el token ", )
     this.objForm.patchValue({
-      usuario: sessionStorage.getItem('user'),
-      tkn: sessionStorage.getItem('user'),
+      usuario: sessionStorage.getItem('ciUsuario')
     });
-
-    this.partMoviServ
-      .validacionLoge2(this.objForm.value)
-      .subscribe((resultado: any) => {
+    this.partMoviServ.actualizarTkn(this.objForm.value).subscribe((resultado: any) => {
         if (resultado.JWT != null) {
           sessionStorage.setItem('tkn', resultado.JWT);
-          this.irPagina.navigateForward('/holam');
+          this.irPagina.navigateForward('/inicio');
         } else {
-          this.mostAlerta('Contraseña incorrecta', 'Advertencia');
           this.irPagina.navigateForward('/login');
         }
       });

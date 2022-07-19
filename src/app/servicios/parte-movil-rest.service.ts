@@ -62,6 +62,11 @@ export class ParteMovilRestService {
     return this.http.post(urlServer, objPersona, this.encabezadoJSON());
   }
 
+  actualizarTkn(objPersona) {
+    const urlServer = apiUrlLoge + 'login/tkn';
+    return this.http.post(urlServer, objPersona, this.encabezadoJSON());
+  }
+
   autorizarPerfil(objPersona) {
     const urlServer = apiUrlTare + 'login/ingreso';
     return this.http.post(urlServer, objPersona, this.encabezadoJSON());
